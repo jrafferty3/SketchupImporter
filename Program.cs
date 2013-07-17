@@ -15,7 +15,7 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            string file = "C:/Users/Patrick/Documents/models.txt";
+            string file = "path to a text file: models.txt";
             try
             {
                 StreamReader reader = File.OpenText(file);
@@ -54,7 +54,7 @@ namespace ConsoleApplication1
                 HtmlAttribute src = r.Attributes["href"];
                 string url = "http://sketchup.google.com" + src.Value;
                 url = url.Replace("&amp;", "&");
-                string location = @"C:\Users\Patrick\Downloads\" + filename + ".zip";
+                string location = @"path to downloads folder" + filename + ".zip";
                 System.Diagnostics.Debug.WriteLine(url+"\n"+location);
                 w.DownloadFile(new Uri(url),location);
             }

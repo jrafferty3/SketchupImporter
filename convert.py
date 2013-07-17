@@ -3,24 +3,24 @@ import zipfile
 import shutil
 import glob
 
-files = glob.glob('C:/Users/Patrick/Documents/temp/models/*.dae')
+files = glob.glob('path to temp file/*.dae')
 for f in files:
 	os.remove(f)
 	
-files = glob.glob('C:/Users/Patrick/Documents/models/*.dae')
+files = glob.glob('path to models/*.dae')
 for f in files:
 	os.remove(f)
 
 for line in open("models.txt","r").readlines():
 	line = line[:line.find(" ")]
 	#location zip files are downloaded to
-	downloads = "C:/Users/Patrick/Downloads/"
+	downloads = "path to download folder"
 	#where to open zip files
-	zip_to = "C:/Users/Patrick/Documents/temp"
+	zip_to = "path to a temp folder"
 	#where the models are located
 	temp = zip_to+"/models/"
 	#where to save the models as .dae files to be converted
-	models = "C:/Users/Patrick/Documents/models/"
+	models = "path to where to store .dae files for conversion"
 	file = line+".dae"
 	zp = zipfile.ZipFile(downloads+line+".zip","r");
 	zp.extractall(zip_to);
@@ -31,5 +31,5 @@ for line in open("models.txt","r").readlines():
 	shutil.move(temp+line+".dae",models)
 	#conversion command
 	#path to FBX converter + path to .dae file + location to save .fbx file
-	command = '"C:/Program Files/Autodesk/FBX/FBX Converter/2013.3/bin/FBXCONVERTER" C:/Users/Patrick/Documents/models/'+line+'.dae C:/Users/Patrick/Documents/Research_models/'+line+'.fbx'
+	command = '"path to Autodesks FBX converter" path to where .dae models are/'+line+'.dae path to where you want fbx files/'+line+'.fbx'
 	os.system(command);
